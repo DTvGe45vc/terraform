@@ -9,16 +9,16 @@ provider "kubernetes" {
 }
 
 
-terraform {
-  backend "s3" {
-    bucket                      = "backups"
-    key                         = "terraform/terraform.tfstate"
-    endpoint                    = "https://s3.selcdn.ru"
-    region                      = "ru-1"
-    skip_region_validation      = true
-    skip_credentials_validation = true
-  }
-}
+#terraform {
+#  backend "s3" {
+#    bucket                      = "backups"
+#    key                         = "terraform/terraform.tfstate"
+#    endpoint                    = "https://s3.selcdn.ru"
+#    region                      = "ru-1"
+#    skip_region_validation      = true
+#    skip_credentials_validation = true
+#  }
+#}
 
 #--------------------------------------------------------
 #-----resources--------------
