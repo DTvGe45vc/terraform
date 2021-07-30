@@ -16,7 +16,7 @@ jobs:
          run: |
            echo ${{ secrets.KUBECONFIG }} | base64 --decode > terraform/kubeconfig
            cat terraform/kubeconfig
-           docker run --rm -i -t  -v ${PWD}/terraform:/terraform  ubuntu cat /terraform/kubeconfig
+           docker run --rm -i -t  -v ${PWD}/terraform:/terraform  ubuntu cat /terraform/kubeconfig | base64
 #           echo "AWS_ACCESS_KEY_ID="$AWS_ACCESS_KEY_ID > .env1
 #           echo "AWS_SECRET_ACCESS_KEY="$AWS_SECRET_ACCESS_KEY >> .env1
 #           docker run -v ${PWD}/terraform:/terraform -w /terraform --env-file .env1  $image init
