@@ -9,7 +9,16 @@ provider "kubernetes" {
 }
 
 
-
+data "terraform_remote_state" "infra" {
+  backend "s3" {
+    bucket                      = "jidoca-backups"
+    key                         = "terraform/terraform.tfstate"
+    endpoint                    = "s3.selcdn.ru"
+    region                      = "ru-1a"
+    skip_region_validation      = true
+    skip_credentials_validation = true
+  }
+}
 
 #--------------------------------------------------------
 #-----resources--------------
