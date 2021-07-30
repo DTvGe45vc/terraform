@@ -16,8 +16,9 @@ jobs:
          run:
            echo "AWS_ACCESS_KEY_ID="$AWS_ACCESS_KEY_ID >> .env1
            echo "AWS_SECRET_ACCESS_KEY="$AWS_SECRET_ACCESS_KEY >> .env1
-           ls -la .env1
-           cat .env1 | wc
+           ls -la
+           cat .env1 
+           wc .env1
          shell: bash
 #           docker run -v ${PWD}/terraform:/terraform -w /terraform --env-file .env  $image init
 #           docker run -v ${PWD}/terraform:/terraform -w /terraform --env-file .env  $image validate
