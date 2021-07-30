@@ -17,6 +17,6 @@ jobs:
           image: "hashicorp/terraform:1.0.2"
          run: |
            echo $kubeconfig > ${PWD}/terraform/kubeconfig
-           docker run -v ${PWD}/terraform:/terraform -w /terraform  $image init
-           docker run -v ${PWD}/terraform:/terraform -w /terraform  $image validate
-           docker run -v ${PWD}/terraform:/terraform -w /terraform  $image plan
+           docker run -v ${PWD}/terraform:/terraform -w /terraform -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY  $image init
+           docker run -v ${PWD}/terraform:/terraform -w /terraform -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY  $image validate
+           docker run -v ${PWD}/terraform:/terraform -w /terraform -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY  $image plan

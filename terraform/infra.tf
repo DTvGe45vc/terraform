@@ -11,8 +11,6 @@ provider "kubernetes" {
 
 terraform {
   backend "s3" {
-    access_key                  = "153598_s3"
-    secret_key                  = "HUqptT?A7A"
     bucket                      = "backups"
     key                         = "terraform/terraform.tfstate"
     endpoint                    = "https://s3.selcdn.ru"
