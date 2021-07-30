@@ -9,7 +9,7 @@ jobs:
     steps:
        - uses: actions/checkout@v1
        - name: Check 
-         with:
+         env:
           kubeconfig: ${{ secrets.KUBECONFIG }}
          run: |
            echo $kubeconfig > ${PWD}/terraform/kubeconfig
