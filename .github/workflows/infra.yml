@@ -15,13 +15,8 @@ jobs:
          env:
              kubeconfig: ${{ secrets.KUBECONFIG }}
 
-       - uses: microsoft/variable-substitution@v1
-         with:
-             files: '.env'
-         env:
-           AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_NAME }}
-           AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_NAME }}
-         run: |
+       - name: Check
+         run:
            ls -la terraform/kubeconfig
            cat terraform/kubeconfig | wc
            ls -la .env
