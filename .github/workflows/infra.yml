@@ -29,7 +29,7 @@ jobs:
            echo $kubeconfig > ${PWD}/terraform/kubeconfig
            echo AWS_ACCESS_KEY_ID="${{ secrets.S3_ACCESS_NAME }}" > .env
            echo AWS_SECRET_ACCESS_KEY="$AWS_SECRET_ACCESS_KEY" >> .env
-           cat .env
+           cat .env | wc
 #           docker run -v ${PWD}/terraform:/terraform -w /terraform --env-file .env  $image init
 #           docker run -v ${PWD}/terraform:/terraform -w /terraform --env-file .env  $image validate
 #           docker run -v ${PWD}/terraform:/terraform -w /terraform --env-file .env  $image plan
