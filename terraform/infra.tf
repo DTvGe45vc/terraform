@@ -11,7 +11,7 @@ provider "kubernetes" {
 
 terraform {
   backend "s3" {
-    bucket                      = "${BUCKET_NAME}"
+    bucket                      = "${var.BUCKET_NAME}"
     key                         = "terraform/terraform.tfstate"
     endpoint                    = "s3.selcdn.ru"
     region                      = "ru-1a"
