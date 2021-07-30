@@ -9,17 +9,12 @@ jobs:
 
     steps:
        - uses: actions/checkout@v2
-       - name: Check 
        - uses: microsoft/variable-substitution@v1
          with:
              files: 'terraform/kubeconfig'
          env:
              kubeconfig: ${{ secrets.KUBECONFIG }}
-         run: |
-           ls -la terraform/kubeconfig
-           cat terraform/kubeconfig | wc
 
-       - name S3 creds 
        - uses: microsoft/variable-substitution@v1
          with:
              files: '.env'
@@ -27,6 +22,10 @@ jobs:
            AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_NAME }}
            AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_NAME }}
          run: |
+           ls -la terraform/kubeconfig
+           cat terraform/kubeconfig | wc
+           ls -la .env
+           cat .env | wc
            echo "$bucket"
            echo $bucket
            echo $image
