@@ -12,7 +12,7 @@ jobs:
       AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_NAME }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_NAME }}
     steps:
-       - uses: actions/checkout@v1
+       - uses: actions/checkout@v2
        - name: Check 
          env:
            image: "hashicorp/terraform:1.0.2"
