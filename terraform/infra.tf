@@ -13,7 +13,7 @@ terraform {
   backend "s3" {
     bucket                      = "jidoca-backups"
     key                         = "terraform/terraform.tfstate"
-    endpoint                    = "s3.selcdn.ru"
+    endpoint                    = "https://s3.selcdn.ru"
     region                      = "ru-1a"
     skip_region_validation      = true
     skip_credentials_validation = true
