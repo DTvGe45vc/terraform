@@ -17,10 +17,10 @@ jobs:
            image: "hashicorp/terraform:1.0.2"
          run: |
            echo ${{ secrets.BUCKET_NAME }}
-           echo $AWS_ACCESS_KEY_ID
+           echo $env:AWS_ACCESS_KEY_ID
            echo $kubeconfig > ${PWD}/terraform/kubeconfig
            echo AWS_ACCESS_KEY_ID=${{ secrets.S3_ACCESS_NAME }} > .env
-           echo "AWS_SECRET_ACCESS_KEY="${{ secrets.S3_SECRET_NAME }} >> .env
+           echo "AWS_SECRET_ACCESS_KEY="$env:AWS_SECRET_ACCESS_KEY" >> .env
            cat .env
 #           docker run -v ${PWD}/terraform:/terraform -w /terraform --env-file .env  $image init
 #           docker run -v ${PWD}/terraform:/terraform -w /terraform --env-file .env  $image validate
