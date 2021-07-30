@@ -9,7 +9,7 @@ provider "kubernetes" {
 }
 
 
-data "terraform_remote_state" "infra" {
+terraform {
   backend "s3" {
     bucket                      = "${BUCKET_NAME}"
     key                         = "terraform/terraform.tfstate"
