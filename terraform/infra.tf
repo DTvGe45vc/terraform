@@ -11,7 +11,7 @@ provider "kubernetes" {
 
 terraform {
   backend "s3" {
-    bucket                      = "${var.BUCKET_NAME}"
+    bucket                      = "jidoca-backups"
     key                         = "terraform/terraform.tfstate"
     endpoint                    = "s3.selcdn.ru"
     region                      = "ru-1a"
