@@ -15,7 +15,7 @@ jobs:
            AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_NAME }}
            image: "hashicorp/terraform"
          run: |
-           echo ${{ secrets.KUBECONFIG }} > terraform/kubeconfig
+           cat <<< "${{ secrets.KUBECONFIG }}" > "terraform/kubeconfig"
            docker run -e AWS_ACCESS_KEY_ID=${{ secrets.S3_ACCESS_NAME }} -e AWS_SECRET_ACCESS_KEY=${{ secrets.S3_SECRET_NAME }} -v ${PWD}/terraform:/terraform -w /terraform $image init
 #           docker run -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY -v ${PWD}/terraform:/terraform -w /terraform $image validate
 #           docker run -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY -v ${PWD}/terraform:/terraform -w /terraform $image plan
