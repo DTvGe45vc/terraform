@@ -10,9 +10,9 @@ jobs:
        - uses: actions/checkout@v1
        - name: Check 
          with:
-          KUBECONFIG: ${{ secrets.KUBECONFIG }}
+          kubeconfig: ${{ secrets.KUBECONFIG }}
          run: |
-           echo $KUBECONFIG > ${PWD}/terraform/kubeconfig
+           echo $kubeconfig > ${PWD}/terraform/kubeconfig
            docker run -v ${PWD}/terraform:/terraform -w /terraform  hashicorp/terraform:latest init
            docker run -v ${PWD}/terraform:/terraform -w /terraform  hashicorp/terraform:latest validate
            docker run -v ${PWD}/terraform:/terraform -w /terraform  hashicorp/terraform:latest plan
