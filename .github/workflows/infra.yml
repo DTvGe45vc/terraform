@@ -9,25 +9,20 @@ jobs:
 
     steps:
        - uses: actions/checkout@v2
-#       - uses: microsoft/variable-substitution@v1
-#         with:
-#             files: '.env'
-#         env:
-#             AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_NAME }}
-#             AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_NAME }}
-#
        - name: Check
          env:
              AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_NAME }}
              AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_NAME }}
          run:
-           ls -la .env1
-           echo AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID > .env1
-           echo AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY >> .env1
+           echo "AWS_ACCESS_KEY_ID="$AWS_ACCESS_KEY_ID >> .env1
+           echo "AWS_SECRET_ACCESS_KEY="$AWS_SECRET_ACCESS_KEY >> .env1
+           cat .env
+           ls -la .env
 #           ls -la terraform/kubeconfig
 #           cat terraform/kubeconfig | wc
            ls -la .env1
            cat .env1 | wc
+         shell: bash
 #           docker run -v ${PWD}/terraform:/terraform -w /terraform --env-file .env  $image init
 #           docker run -v ${PWD}/terraform:/terraform -w /terraform --env-file .env  $image validate
 #           docker run -v ${PWD}/terraform:/terraform -w /terraform --env-file .env  $image plan
