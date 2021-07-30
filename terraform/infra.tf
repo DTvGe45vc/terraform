@@ -11,9 +11,9 @@ provider "kubernetes" {
 
 terraform {
   backend "s3" {
-    access_key                  = "153753_Mona"
-    secret_key                  = "HKM[3c6&;X7OGjplKhlZ2rcjGiur"
-    bucket                      = "jidoca-backups"
+    access_key                  = "153598_s3"
+    secret_key                  = "HUqptT?A7A"
+    bucket                      = "backups"
     key                         = "terraform/terraform.tfstate"
     endpoint                    = "https://s3.selcdn.ru"
     region                      = "ru-1"
