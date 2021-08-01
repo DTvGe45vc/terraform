@@ -21,7 +21,7 @@ jobs:
            AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_NAME }}
            image: "hashicorp/terraform"
          run: |
-           docker run -e AWS_ACCESS_KEY_ID=${{ secrets.S3_ACCESS_NAME }} -e AWS_SECRET_ACCESS_KEY=${{ secrets.S3_SECRET_NAME }} -v ${PWD}/terraform:/terraform -v ${PWD}/kubeconfig:/kubeconfig -w /terraform $image init
+#           docker run -e AWS_ACCESS_KEY_ID=${{ secrets.S3_ACCESS_NAME }} -e AWS_SECRET_ACCESS_KEY=${{ secrets.S3_SECRET_NAME }} -v ${PWD}/terraform:/terraform -v ${PWD}/kubeconfig:/kubeconfig -w /terraform $image init
            docker run -e AWS_ACCESS_KEY_ID=${{ secrets.S3_ACCESS_NAME }} -e AWS_SECRET_ACCESS_KEY=${{ secrets.S3_SECRET_NAME }} -v ${PWD}/terraform:/terraform -v ${PWD}/kubeconfig:/kubeconfig -w /terraform $image validate
            docker run -e AWS_ACCESS_KEY_ID=${{ secrets.S3_ACCESS_NAME }} -e AWS_SECRET_ACCESS_KEY=${{ secrets.S3_SECRET_NAME }} -v ${PWD}/terraform:/terraform -v ${PWD}/kubeconfig:/kubeconfig -w /terraform $image plan
 #           docker run -e AWS_ACCESS_KEY_ID=${{ secrets.S3_ACCESS_NAME }} -e AWS_SECRET_ACCESS_KEY=${{ secrets.S3_SECRET_NAME }} -v ${PWD}/terraform:/terraform -v ${PWD}/kubeconfig:/kubeconfig -w /terraform $image apply -auto-approve
